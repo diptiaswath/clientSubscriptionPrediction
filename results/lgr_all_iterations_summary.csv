@@ -1,0 +1,11 @@
+Results Summary: All iterations of Logistic Regression model
+Model,Average Fit Time (seconds),Train F1 score (cv),Test F1 score (cv),Test F1 score,Train Accuracy score (cv),Test Accuracy score (cv),Test Accuracy score,PR AUC score,ROC AUC score,True Positives,False Positives,True Negatives,False Negatives
+LogisticRegression with SMOTE on train,0.558314037322998,0.8316870608728628,0.8297503732432622,0.6090580716865795,0.8837566102648002,0.882474799178917,0.8843878389482334,0.6603288744967034,0.8531646711528938,1096,1155,9667,252
+LogisticRegression with SMOTE on whole,0.7146973609924316,0.9394598283450968,0.9387128674393956,0.941771221103911,0.9390978052098633,0.9383750591912344,0.9414591322829552,0.9550821920679899,0.9414593819341165,10246,692,10130,575
+LogisticRegression with SMOTE on train (RandomizedSearchCV),0.7146973609924316,0.8465928629060449,0.8450333205210973,0.5873846920967339,0.8875355299096925,0.8863533585827327,0.8640098603122432,0.6658175572987417,0.8620374777831946,1178,1485,9337,170
+
+
+Results Summary: Compare LogisticRegression models with decision threshold fine tuned
+Model,Threshold,Test F1 score (at threshold),PR AUC score,ROC AUC score,True Positives,False Positives,True Negatives,False Negatives
+LogisticRegression with SMOTE on train (RandomizedSearchCV),0.6,0.5873846920967339,0.6658175572987417,0.8620374777831946,1178,1485,9337,170
+LogisticRegression (RandomizedSearchCV best estimator) threshold tuned for max F1,0.09862493620063761,0.5484147386461011,0.42128708494436723,0.8562920926544291,960,1193,9629,388
