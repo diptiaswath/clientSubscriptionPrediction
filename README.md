@@ -1,4 +1,6 @@
 
+# Client Subscription Predictions
+
 **Table of Contents:**
  - [Objective](#item-objective)
       - [Key Performance Metrics](#sub-item-kpi)
@@ -20,9 +22,7 @@ To achieve this objective, the model should:
 
 -   **Minimize Unnecessary Contacts:** Reduce false positives to limit the number of clients contacted unnecessarily.
 
-The model should strike a balance between high precision to reduce unnecessary contacts and high recall to ensure successful subscriptions are correctly identified.
-
-The goal is to retain or improve the key performance metrics — **F1 score** and **PR AUC score** — that were observed before any hyperparameter tuning or decision threshold adjustments. This ensures that the model continues to perform well in terms of accuracy and efficiency. **ROC AUC** is also considered an evaluation metric here for measuring the model’s overall performance.
+The model should strike a balance between high precision to reduce unnecessary contacts and high recall to ensure successful subscriptions are correctly identified. The goal is to retain or improve the key performance metrics — **F1 score** and **PR AUC score** — that were observed before any hyperparameter tuning or decision threshold adjustments. This ensures that the model continues to perform well in terms of accuracy and efficiency. **ROC AUC** is also considered an evaluation metric here for measuring the model’s overall performance.
 
 **F1-Score**: This metric balances precision and recall, providing a comprehensive measure of the model’s ability to correctly identify subscribers while minimizing false positives.
 
@@ -76,7 +76,7 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
 2.  **Impact of Threshold Tuning:**
 
-    -   Fine-tuning the decision thresholds for all models to maximize the F1 score resulted in lower F1 scores, suggesting that this step does not improve performance in terms of reducing false positives or enhancing predictive accuracy and should be discarded.
+    -   Fine-tuning the decision thresholds for all models to maximize the F1 score resulted in lower F1 scores, suggesting that this step does not improve performance in terms of reducing false positives or enhancing predictive accuracy and should be discarded.<br>
 
 
 3.  **Training Speed and Efficiency:**
@@ -89,7 +89,7 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
 4.  **Interpretability:**
 
-    -   Both the Decision Tree and Logistic Regression models offer clear insights into feature importance and decision-making processes, which is helpful for understanding how the model is predicting client subscriptions. The SVC model, while effective in some cases, lacks intuitive interpretability, making it harder to explain predictions to stakeholders.
+    -   Both the Decision Tree and Logistic Regression models offer clear insights into feature importance and decision-making processes, which is helpful for understanding how the model is predicting client subscriptions. The SVC model, while effective in some cases, lacks intuitive interpretability, making it harder to explain predictions to stakeholders.<br>
 
 
 5.  **Feature Importance in Decision Tree vs. Logistic Regression:**
