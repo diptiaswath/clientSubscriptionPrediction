@@ -176,35 +176,28 @@ Although the Logistic Regression model (Figure6, Figure7) has better PR AUC and 
 To optimize marketing strategies, focus on the key features and interactions that drive client subscriptions:
 
 #### **Decision Tree Model**
-
 **Top Features:**
 -   **Duration (0.410):** Highest importance, indicating that the length of the call is a strong predictor of client subscription likelihood.
 -   **Euribor3m (0.346):** Significant predictor, reflecting the impact of the 3-month Euribor rate on subscription probability.
 -   **Month_Apr (0.051) and Cons. Conf. Index (0.051):** Moderate importance, showing some influence based on the month of contact and consumer confidence.
-
 **Predictive Performance:**
 The model’s ability to accurately classify clients and minimize unnecessary contacts is driven by its high-importance features. It efficiently directs marketing efforts by making clear decisions based on feature splits.
-
 **Minimizing Contacts:**
 By focusing on features like "duration" and "euribor3m," the Decision Tree helps to identify clients more likely to subscribe, thereby reducing the number of unnecessary contacts.
 
 #### **Logistic Regression Model with L2 Regularization**
-
 **Top Features with Positive Coefficients:**
 -   **Cons. Price Index (2.707556):** High positive coefficient, indicating a strong positive effect on the likelihood of subscription. Higher values of this feature significantly increase the probability of subscription.
 -   **Month_Oct (2.433611):** High positive coefficient, showing that contacts made in October are strongly associated with a higher likelihood of subscription.
 -   **Cons. Conf. Index^6 (2.380486):** A high positive coefficient on this transformed feature suggests that very high levels of consumer confidence have a strong positive effect on subscription likelihood.
 -   **Cons. Price Index^2 (1.593425):** Indicates that higher squared values of the cons. price index contribute positively, showing that increases in this feature’s squared term further raise the likelihood of subscription.
-
 **Top Features with Negative Coefficients:**
 -   **Cons. Price Index^6 (-2.886025):** High negative coefficient, suggesting that very high values of this feature decrease the likelihood of subscription. Extreme values in this feature can lower subscription probabilities.
 -   **Month_May (-1.733885):** Negative coefficient shows that contacts made in May are associated with a lower probability of subscription, indicating this month is less favorable for successful subscriptions.
 -   **Duration^2 Cons. Price Index^4 (-1.525438):** Complex interaction where higher values in both the duration and cons. price index raised to the fourth power lead to a decreased likelihood of subscription, suggesting that very long calls combined with high cons. price index values can negatively impact subscription chances.
-
 **Predictive Performance:** The model’s coefficients provide insights into how each feature and its transformations influence subscription probabilities. For instance:
 -   **Cons. Price Index (2.707556)** and **Month_Oct (2.433611)** have strong positive effects, meaning clients with higher cons. price index values or those contacted in October are more likely to subscribe.
 -   **Cons. Price Index^2 (1.593425)** further amplifies the effect of this feature, indicating that increases in the cons. price index have a compounded positive impact on subscription probability.
-
 **On the other hand:**
 -   **Cons. Price Index^6 (-2.886025)** and **Month_May (-1.733885)** show strong negative effects, helping to identify and avoid less promising clients, thus improving targeting efficiency.
 -   **Duration^2 Cons. Price Index^4 (-1.525438)** demonstrates that extreme values in both features combined reduce subscription likelihood, guiding the model to avoid these less favorable scenarios.
