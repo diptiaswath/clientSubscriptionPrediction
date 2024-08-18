@@ -19,15 +19,13 @@ The primary goal of this project is to develop a predictive model for banking cl
 To achieve this objective, the model should:
 
 -   **Accurately Predict Client Subscriptions**: Ensure high predictive accuracy and correctly identify clients who will subscribe.
-
 -   **Minimize Unnecessary Contacts:** Reduce false positives to limit the number of clients contacted unnecessarily.
 
-The model should strike a balance between high precision to reduce unnecessary contacts and high recall to ensure successful subscriptions are correctly identified. The goal is to retain or improve the key performance metrics — **F1 score** and **PR AUC score** — that were observed before any hyperparameter tuning or decision threshold adjustments. This ensures that the model continues to perform well in terms of accuracy and efficiency. **ROC AUC** is also considered an evaluation metric here for measuring the model’s overall performance.
+The model should strike a balance between high precision to reduce unnecessary contacts and high recall to ensure successful subscriptions are correctly identified. 
+The goal is to retain or improve the key performance metrics — **F1 score** and **PR AUC score** — that were observed before any hyperparameter tuning or decision threshold adjustments. This ensures that the model continues to perform well in terms of accuracy and efficiency. **ROC AUC** is also considered an evaluation metric here for measuring the model’s overall performance.
 
 **F1-Score**: This metric balances precision and recall, providing a comprehensive measure of the model’s ability to correctly identify subscribers while minimizing false positives.
-
 **Area Under the Precision-Recall Curve (PR AUC Score)**: This metric captures the trade-off between precision and recall across different thresholds, providing a single value that reflects both aspects. This score shows a good balance for the positive class and helps in evaluating the model’s overall effectiveness.
-
 **Area Under the ROC Curve (ROC AUC Score)**: Although less focused on the balance between precision and recall, the ROC AUC metric indicates the model’s ability to distinguish between classes and provides additional insights into the model’s performance.
 
 <a id="sub-item-ps"></a>
