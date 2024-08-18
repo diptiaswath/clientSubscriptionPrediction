@@ -1,9 +1,18 @@
 # Client Subscription Prediction
 
+**Table of content:**
+ - [Objective](#item-objective)
+  - [Key Performance Metrics](#sub-item-kpi)
+  - [Project Scope](#sub-item-ps)
+ - [Executive Summary](#item-execsummary)
+ - [GitHub Repository](#item-ghrepo)
+
+<a id="item-objective"></a>
 ## Objective
 
 The primary goal of this project is to develop a predictive model for banking client subscriptions that balances high predictive accuracy with minimizing the number of contacts during its marketing campaigns. This approach is expected to enhance resource allocation, reduce unnecessary outreach, and improve client engagement.
 
+<a id="sub-item-kpi"></a>
 ### Key Performance Metrics
 
 To achieve this objective, the model should:
@@ -22,10 +31,12 @@ The goal is to retain or improve the key performance metrics — **F1 score** an
 
 **Area Under the ROC Curve (ROC AUC Score)**: Although less focused on the balance between precision and recall, the ROC AUC metric indicates the model’s ability to distinguish between classes and provides additional insights into the model’s performance.
 
+<a id="sub-item-ps"></a>
 ### Project Scope
 
 In this project, we intend to compare the performance of classifiers: K-Nearest Neighbors, Logistic Regression, Decision Trees, and Support Vector Machines. We use a multivariate dataset related to marketing bank products via telephone to predict whether a client will subscribe to a term deposit (variable y). This dataset falls under the business subject area and focuses on predicting client subscriptions based on various features. This dataset is based on ["Bank Marketing" UCI dataset](http://archive.ics.uci.edu/ml/datasets/Bank+Marketing).
 
+<a id="sub-item-execsummary"></a>
 ## Executive Summary
 
 ### Key Factors Considered
@@ -88,15 +99,15 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
 ![A graph of different colored bars Description automatically generated](images/f902cf422e13db97fbb53679bcc11c78.png)
 
-Figure 1: Basic Model Comparison with no tuning. In this comparison, the Support Vector Classifier (SVC) model demonstrates superior performance with a higher F1 score compared to the Logistic Regression model. However, the Logistic Regression model shows competitive performance with similar F1 scores, and it outperforms the SVC model in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Additionally, the Logistic Regression model offers advantages in terms of interpretability and efficiency, consuming less time for both training and prediction.
+Figure1: Basic Model Comparison with no tuning. In this comparison, the Support Vector Classifier (SVC) model demonstrates superior performance with a higher F1 score compared to the Logistic Regression model. However, the Logistic Regression model shows competitive performance with similar F1 scores, and it outperforms the SVC model in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Additionally, the Logistic Regression model offers advantages in terms of interpretability and efficiency, consuming less time for both training and prediction.
 
 ![A graph of different colored bars Description automatically generated](images/c5bde96a8fe995c685acb03d6aa97d00.png)
 
-Figure 2: Model Comparison with Hyper-Parameter tuning. With hyperparameter tuning using GridSearchCV or RandomizedSearchCV. The Decision Tree model achieves the highest F1 score, followed by the Logistic Regression model. However, Logistic Regression outperforms the Decision Tree in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Both models offer good interpretability, with the Decision Tree being more computationally efficient. On the other hand, the Support Vector Classifier (SVC), with hyperparameter tuning, records the lowest F1, PR AUC, and ROC AUC scores.
+Figure2: Model Comparison with Hyper-Parameter tuning. With hyperparameter tuning using GridSearchCV or RandomizedSearchCV. The Decision Tree model achieves the highest F1 score, followed by the Logistic Regression model. However, Logistic Regression outperforms the Decision Tree in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Both models offer good interpretability, with the Decision Tree being more computationally efficient. On the other hand, the Support Vector Classifier (SVC), with hyperparameter tuning, records the lowest F1, PR AUC, and ROC AUC scores.
 
 ![A graph of different colored bars Description automatically generated with medium confidence](images/ad7c21f654236a3b559e619f52f4c948.png)
 
-Figure 3: Model Comparison with Hyper-Parameter and Decision Threshold tuning to maximize F1 score. After additional tuning of decision thresholds to maximize the F1 score, the best estimators from GridSearchCV or RandomizedSearchCV were used for the Logistic Regression, Decision Tree, and SVC models. The SVC model was fine-tuned for its decision threshold with both the basic (non-hyper-tuned) model and the best estimator from hyperparameter tuning, as the basic SVC model initially showed the best performance, achieving a high F1 score along with well-balanced PR AUC and ROC AUC scores before hyper=parameter tuning. When optimizing for a higher F1 score, the hyperparameter-tuned Decision Tree model (without adjusting the decision threshold) achieves the highest F1 score. This is followed by the basic (non-hyper-tuned) SVC model, and then the hyperparameter-tuned Logistic Regression model. However, fine-tuning the decision threshold to maximize the F1 score actually lowered the F1 score across all models, suggesting that this step can be discarded.
+Figure3: Model Comparison with Hyper-Parameter and Decision Threshold tuning to maximize F1 score. After additional tuning of decision thresholds to maximize the F1 score, the best estimators from GridSearchCV or RandomizedSearchCV were used for the Logistic Regression, Decision Tree, and SVC models. The SVC model was fine-tuned for its decision threshold with both the basic (non-hyper-tuned) model and the best estimator from hyperparameter tuning, as the basic SVC model initially showed the best performance, achieving a high F1 score along with well-balanced PR AUC and ROC AUC scores before hyper=parameter tuning. When optimizing for a higher F1 score, the hyperparameter-tuned Decision Tree model (without adjusting the decision threshold) achieves the highest F1 score. This is followed by the basic (non-hyper-tuned) SVC model, and then the hyperparameter-tuned Logistic Regression model. However, fine-tuning the decision threshold to maximize the F1 score actually lowered the F1 score across all models, suggesting that this step can be discarded.
 
 ### Recommendation
 
@@ -106,21 +117,21 @@ Although the Logistic Regression model (Figure6, Figure7) has better PR AUC and 
 
 ![A screenshot of a computer Description automatically generated](images/6dcbeccd8fec470db23634156cc4f869.jpeg)
 
-Figure 4: Classification Report and best hyper-parameters for recommended Decision Tree classifier
+Figure4: Classification Report and best hyper-parameters for recommended Decision Tree classifier
 
 ![A graph of a graph Description automatically generated with medium confidence](images/9022c3813b201b2575ccac85159fc397.png)
 
-Figure 5: Confusion Matrix, PR AUC and ROC AUC curve for recommended Decision Tree
+Figure5: Confusion Matrix, PR AUC and ROC AUC curve for recommended Decision Tree
 
 ### ![A screenshot of a computer Description automatically generated](images/eed613a703280f1fd7812fc5584cfa5d.jpeg)
 
-Figure 6: Classification Report and best hyper-parameters for Logistic Regression classifier
+Figure6: Classification Report and best hyper-parameters for Logistic Regression classifier
 
 ### 
 
 ![](images/d35c43464a1d5b82919d9da69f8f6cad.png)
 
-Figure 7: Confusion Matrix, PR AUC and ROC AUC curve for tuned Logistic Regression classifier
+Figure7: Confusion Matrix, PR AUC and ROC AUC curve for tuned Logistic Regression classifier
 
 ### Feature Importance in hyperparameter-tuned Decision Tree v.s. Logistic Regression
 
@@ -180,12 +191,13 @@ To optimize marketing strategies, focus on the key features and interactions tha
 
 ![A graph with text overlay Description automatically generated](images/65864c03af357a76d99eaaa8ec122969.jpeg)![A screenshot of a computer Description automatically generated](e430ceb15486e1c77b356cc8b56c2942.jpeg)
 
-Figure 8: Features in use by recommended Decision Tree classifier
+Figure8: Features in use by recommended Decision Tree classifier
 
 ![A graph of a positive and negative Description automatically generated](images/4c0a0e9a665f7326c663b26a1bd31325.png)
 
-Figure 9: Top Positive and Negative Features by their coefficients from hyper-tuned Logistic Regression classifier
+Figure9: Top Positive and Negative Features by their coefficients from hyper-tuned Logistic Regression classifier
 
+<a id="item-ghrepo"></a>
 ## GitHub Repository
 
 <https://github.com/diptiaswath/clientSubscriptionPrediction/>
@@ -225,32 +237,24 @@ As part data preparation, prepared the data to, a) clean up duplicate rows, b) f
 Considered features that could be dropped based on their permutation importance.
 
 Zero-Importance features: Historical information from previous campaigns - pdays, previous
-
 Low- Importance features: month, loan, day_of_week, default, contract
-
 Negative-Importance features: education, job, housing, marital
 
-Decided to drop zero and low-importance features: pdays, previous, contract, marital as
+Decided to drop zero and low-importance features: pdays, previous, contract, marital as these were observed to be safe from their KDE plots (/plots) in addition to their feature importances captured below.
 
-these were observed to be safe from their KDE plots (/plots) in addition to their feature importances captured below.
-
-![A graph showing a number of permutation Description automatically generated](images/70cdcf3494c67c431c1e71e5bbf8c45e.jpg)
+![Permutation Importance](images/70cdcf3494c67c431c1e71e5bbf8c45e.jpg)
 
 In subsequent iterations as part of improving model performance, also decided to drop a low and negative importance feature: housing and default. This resulted in 12 predictor variables and 1 target variable, with 40566 entries.
 
 #### Feature Engineering
 
-Numeric Predictors were scaled and certain models specifically Logistic Regression and KNN Classifier pre-processed these features with a polynomial transform.
+Numeric Predictors: ['age', 'duration', 'campaign', 'cons.price.idx', 'cons.conf.idx', 'euribor3m'], were scaled and certain models specifically Logistic Regression and KNN Classifier pre-processed these features with a polynomial transform
 
-num_features = ['age', 'duration', 'campaign', 'cons.price.idx', 'cons.conf.idx', 'euribor3m']
-
-Both Categorical and Binary predictors were one hot encoded and the target variable ‘y’ was mapped to a numeric 1or a 0, where yes/1 is a positive minority class indicating client will subscribe to a term deposit and the majority class of no/1 indicates client will not subscribe.
-
-Categorical Predictors excluding Binary, where cat_features = ['education', 'job', 'month', 'day_of_week', 'poutcome'] and bin_features = ['loan']
+Both Categorical: ['education', 'job', 'month', 'day_of_week', 'poutcome'] and Binary predictors: ['loan'], were one hot encoded and the target variable ‘y’ was mapped to a numeric 1 or a 0, where yes/1 is a positive minority class indicating client will subscribe to a term deposit and the majority class of no/1 indicates client will not subscribe.
 
 #### SMOTE on entire data v.s. SMOTE resampling on only training data
 
-As outlined in the summary, this was needed to work with the highly imbalanced data-set. Models using both were compared and labeled as either Iteration1 and 2 across all four classifiers.
+As outlined in the summary, this was needed to work with the highly imbalanced data-set. Models using both were compared and labeled as either Iteration1 and Iteration2 across all four classifiers.
 
 #### Train and Test Split
 
@@ -260,7 +264,7 @@ A 70/30 split where random=442 was applied with a stratify parameter to ensure b
 
 **Logistic Regression Classifier:** All iterations of this classifier used Stratified K-Fold cross validation to reduce the risk of overfitting. The iterations include, a) Iteration1 – evaluation with SMOTE resampled training data, b) Iteration2 – evaluation with SMOTE sampling on entire dataset, c) Iteration3 – evaluation with SMOTE resampled training data and hyper parameter tuning with Randomized Search since Grid Search was computationally expensive and time consuming, d) Iteration4 – evaluation with SMOTE resampled training data with both hyper parameter tuning and decision threshold tuning to maximize F1 score.
 
-The evaluation results are captured below and written to a CSV file available in /results/lgr_all_iterations_summary.csv. Plots that compare the key performance metrics are captured in Figure1, 2 and 3 in the summary section. Classification reports and Confusion Matrices for each are available in the attached Jupyter notebook.
+The evaluation results are captured below and written to a CSV file available in /results/lgr_all_iterations_summary.csv. Plots that compare the key performance metrics are captured in Figure1, Figure2 and Figure3 in the summary section. Classification reports and Confusion Matrices for each are available in the attached Jupyter notebook.
 
 | **Results Summary: All iterations of Logistic Regression model**                           |                            |                              |                     |                    |                           |                          |                     |                    |                    |                |                 |                |                 |
 |--------------------------------------------------------------------------------------------|----------------------------|------------------------------|---------------------|--------------------|---------------------------|--------------------------|---------------------|--------------------|--------------------|----------------|-----------------|----------------|-----------------|
@@ -275,7 +279,6 @@ The evaluation results are captured below and written to a CSV file available in
 | LogisticRegression with SMOTE on train (RandomizedSearchCV)                                | 0.6                        | 0.5873846920967340           | 0.6658175572987420  | 0.8620374777831950 | 1178                      | 1485                     | 9337                | 170                |                    |                |                 |                |                 |
 | LogisticRegression (RandomizedSearchCV best estimator) threshold tuned for max F1          | 0.09862493620063760        | 0.5484147386461010           | 0.42128708494436700 | 0.8562920926544290 | 960                       | 1193                     | 9629                | 388                |                    |                |                 |                |                 |
 
-### 
 
 **Decision Tree Classifier:** All iterations of this classifier used Stratified K-Fold cross validation to reduce the risk of overfitting. The iterations include, a) Iteration1 – evaluation with SMOTE sampling on entire dataset, b) Iteration2 – evaluation with SMOTE resampled training data evaluation with SMOTE sampling on entire dataset, c) Iteration3 – evaluation with SMOTE resampled training data and hyper parameter tuning with Grid Search, d) Iteration4 – evaluation with SMOTE resampled training data with both hyper parameter tuning and decision threshold tuning to maximize F1 score.
 
@@ -369,7 +372,7 @@ Located in /results/results_summary_with_more_fine_tune.csv with their respectiv
 | **SVC with SMOTE on train (GridSearchCV)**                                            | 0.6                 | 0.3583868010999080               | 0.3883420215615050  | 0.5955210207583520 | 391                | 443                 | 10379              | 957                 |
 | **SVC (RandomizedSearchCV best estimator) threshold tuned for max F1**                | 0.09862493620063760 | 0.5484147386461010               | 0.42128708494436700 | 0.8562920926544290 | 960                | 1193                | 9629               | 388                 |
 
-### Conclusions and Future Work
+### Conclusion and Future Work
 
 This report applies the CRISP-DM framework to iteratively evaluate, compare and improve the four classification models to predict whether a client will subscribe to a term deposit for a Portuguese banking institution. Each CRISP-DM iteration has been of great value, since the predictive performance on the test data-set increased in some iterations while reducing on a few others as summarized across Figure1, 2 and 3. The recommended model is a hyper-tuned Decision Tree classifier that achieves a higher F1 score with an emphasis on training speed, efficiency and model interpretability with the feature importances discussed at length.
 
