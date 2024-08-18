@@ -93,7 +93,6 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
 
 1.  **Best Performing Models:**
-
     -   **Hyperparameter-Tuned Decision Tree:** Achieved the highest F1 score, which is essential for balancing precision and recall—key for both accurately predicting client subscriptions and minimizing unnecessary contacts. This model also has the advantage of faster training and prediction times, making it suitable for real-time applications.
 
     -   **Basic SVC Model:** Initially demonstrated the best balance between F1 score, PR AUC, and ROC AUC, contributing to accurate predictions. However, fine-tuning the decision threshold resulted in a lower F1 score, and its longer training time makes it less ideal for deployment.
@@ -103,13 +102,11 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
 
 2.  **Impact of Threshold Tuning:**
-
     -   Fine-tuning the decision thresholds for all models to maximize the F1 score resulted in lower F1 scores, suggesting that this step does not improve performance in terms of reducing false positives or enhancing predictive accuracy and should be discarded.
 
 
 
 3.  **Training Speed and Efficiency:**
-
     -   The Decision Tree model is the fastest to train and predict, an important consideration when scaling up predictions for large datasets or when quick decisions are needed for client subscription campaigns.
 
     -   The basic SVC model takes considerably longer to train and predict, making it less feasible for time-sensitive applications, despite its initial strong performance in client subscription prediction.
@@ -119,27 +116,22 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
 
 4.  **Interpretability:**
-
     -   Both the Decision Tree and Logistic Regression models offer clear insights into feature importance and decision-making processes, which is helpful for understanding how the model is predicting client subscriptions. The SVC model, while effective in some cases, lacks intuitive interpretability, making it harder to explain predictions to stakeholders.
 
 
 
 5.  **Feature Importance in Decision Tree vs. Logistic Regression:**
-
     -   Decision Tree Model: Features like "duration" (0.410) and "euribor3m" (0.346) are straightforward indicators of client subscription likelihood. The model’s structure helps minimize unnecessary contacts by focusing on these critical factors, ensuring that marketing efforts are effectively targeted.
 
     -   Logistic Regression Model: Provides detailed coefficients for features such as "Cons. Price Index" (2.707556) and "Month_Oct" (2.433611), which indicate how various factors influence subscription probability. Positive coefficients signal high likelihood, while negative coefficients help avoid less promising contacts. This nuanced view aids in optimizing marketing strategies by targeting high-potential clients and reducing unnecessary outreach.
 
 ![A graph of different colored bars Description automatically generated](images/f902cf422e13db97fbb53679bcc11c78.png)
-
 <sub>Figure1: Basic Model Comparison with no tuning. In this comparison, the Support Vector Classifier (SVC) model demonstrates superior performance with a higher F1 score compared to the Logistic Regression model. However, the Logistic Regression model shows competitive performance with similar F1 scores, and it outperforms the SVC model in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Additionally, the Logistic Regression model offers advantages in terms of interpretability and efficiency, consuming less time for both training and prediction.</sub>
 
 ![A graph of different colored bars Description automatically generated](images/c5bde96a8fe995c685acb03d6aa97d00.png)
-
 <sub>Figure2: Model Comparison with Hyper-Parameter tuning. With hyperparameter tuning using GridSearchCV or RandomizedSearchCV. The Decision Tree model achieves the highest F1 score, followed by the Logistic Regression model. However, Logistic Regression outperforms the Decision Tree in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Both models offer good interpretability, with the Decision Tree being more computationally efficient. On the other hand, the Support Vector Classifier (SVC), with hyperparameter tuning, records the lowest F1, PR AUC, and ROC AUC scores.</sub>
 
 ![A graph of different colored bars Description automatically generated with medium confidence](images/ad7c21f654236a3b559e619f52f4c948.png)
-
 <sub>Figure3: Model Comparison with Hyper-Parameter and Decision Threshold tuning to maximize F1 score. After additional tuning of decision thresholds to maximize the F1 score, the best estimators from GridSearchCV or RandomizedSearchCV were used for the Logistic Regression, Decision Tree, and SVC models. The SVC model was fine-tuned for its decision threshold with both the basic (non-hyper-tuned) model and the best estimator from hyperparameter tuning, as the basic SVC model initially showed the best performance, achieving a high F1 score along with well-balanced PR AUC and ROC AUC scores before hyper=parameter tuning. When optimizing for a higher F1 score, the hyperparameter-tuned Decision Tree model (without adjusting the decision threshold) achieves the highest F1 score. This is followed by the basic (non-hyper-tuned) SVC model, and then the hyperparameter-tuned Logistic Regression model. However, fine-tuning the decision threshold to maximize the F1 score actually lowered the F1 score across all models, suggesting that this step can be discarded.</sub>
 
 
@@ -150,23 +142,19 @@ Deploy the hyperparameter-tuned Decision Tree model (Figure4, Figure5) in Produc
 Although the Logistic Regression model (Figure6, Figure7) has better PR AUC and ROC AUC scores, the Decision Tree’s superior speed and F1 score with its ability to handle complex and non-linear relationships among predictors make it the more practical choice for deployment. The Decision Tree’s focus on critical features like "duration" and "euribor3m," alongside the Logistic Regression model’s detailed coefficient insights, ensures alignment with both high predictive performance and effective contact reduction strategies.
 
 ![A screenshot of a computer Description automatically generated](images/6dcbeccd8fec470db23634156cc4f869.jpeg)
-
 <sub>Figure4: Classification Report and best hyper-parameters for recommended Decision Tree classifier</sub>
 
 
 ![A graph of a graph Description automatically generated with medium confidence](images/9022c3813b201b2575ccac85159fc397.png)
-
 <sub>Figure5: Confusion Matrix, PR AUC and ROC AUC curve for recommended Decision Tree</sub>
 
 
 ![A screenshot of a computer Description automatically generated](images/eed613a703280f1fd7812fc5584cfa5d.jpeg)
-
 <sub>Figure6: Classification Report and best hyper-parameters for Logistic Regression classifier</sub>
 
 
 
 ![A screenshot of a computer Description automatically generated](images/d35c43464a1d5b82919d9da69f8f6cad.png)
-
 <sub>Figure7: Confusion Matrix, PR AUC and ROC AUC curve for tuned Logistic Regression classifier</sub>
 
  
@@ -176,6 +164,7 @@ Although the Logistic Regression model (Figure6, Figure7) has better PR AUC and 
 To optimize marketing strategies, focus on the key features and interactions that drive client subscriptions:
 
 #### **Decision Tree Model**
+
 **Top Features:**
 -   **Duration (0.410):** Highest importance, indicating that the length of the call is a strong predictor of client subscription likelihood.
 -   **Euribor3m (0.346):** Significant predictor, reflecting the impact of the 3-month Euribor rate on subscription probability.
@@ -186,6 +175,7 @@ The model’s ability to accurately classify clients and minimize unnecessary co
 By focusing on features like "duration" and "euribor3m," the Decision Tree helps to identify clients more likely to subscribe, thereby reducing the number of unnecessary contacts.
 
 #### **Logistic Regression Model with L2 Regularization**
+
 **Top Features with Positive Coefficients:**
 -   **Cons. Price Index (2.707556):** High positive coefficient, indicating a strong positive effect on the likelihood of subscription. Higher values of this feature significantly increase the probability of subscription.
 -   **Month_Oct (2.433611):** High positive coefficient, showing that contacts made in October are strongly associated with a higher likelihood of subscription.
@@ -195,9 +185,13 @@ By focusing on features like "duration" and "euribor3m," the Decision Tree helps
 -   **Cons. Price Index^6 (-2.886025):** High negative coefficient, suggesting that very high values of this feature decrease the likelihood of subscription. Extreme values in this feature can lower subscription probabilities.
 -   **Month_May (-1.733885):** Negative coefficient shows that contacts made in May are associated with a lower probability of subscription, indicating this month is less favorable for successful subscriptions.
 -   **Duration^2 Cons. Price Index^4 (-1.525438):** Complex interaction where higher values in both the duration and cons. price index raised to the fourth power lead to a decreased likelihood of subscription, suggesting that very long calls combined with high cons. price index values can negatively impact subscription chances.
+
+
 **Predictive Performance:** The model’s coefficients provide insights into how each feature and its transformations influence subscription probabilities. For instance:
 -   **Cons. Price Index (2.707556)** and **Month_Oct (2.433611)** have strong positive effects, meaning clients with higher cons. price index values or those contacted in October are more likely to subscribe.
 -   **Cons. Price Index^2 (1.593425)** further amplifies the effect of this feature, indicating that increases in the cons. price index have a compounded positive impact on subscription probability.
+
+
 **On the other hand:**
 -   **Cons. Price Index^6 (-2.886025)** and **Month_May (-1.733885)** show strong negative effects, helping to identify and avoid less promising clients, thus improving targeting efficiency.
 -   **Duration^2 Cons. Price Index^4 (-1.525438)** demonstrates that extreme values in both features combined reduce subscription likelihood, guiding the model to avoid these less favorable scenarios.
