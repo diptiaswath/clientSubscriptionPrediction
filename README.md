@@ -137,40 +137,38 @@ Figure7: Confusion Matrix, PR AUC and ROC AUC curve for tuned Logistic Regressio
 
 To optimize marketing strategies, focus on the key features and interactions driving client subscriptions:
 
-1. **Importance and Coefficient Interpretation:**
-
-    - **Decision Tree Model:**
-        - **Top Features:**
-            - **Duration (0.410):** Highest importance, indicating that the length of the call is a strong predictor of client subscription likelihood.
-            - **Euribor3m (0.346):** Significant predictor, reflecting the impact of the 3-month Euribor rate on subscription probability.
-            - **Month_Apr (0.051)** and **Cons. Conf. Index (0.051):** Moderate importance, showing some influence based on the month of contact and consumer confidence.
+    - **Decision Tree Model**:
+            - **Top Features:**
+                - **Duration (0.410):** Highest importance, indicating that the length of the call is a strong predictor of client subscription likelihood.
+                - **Euribor3m (0.346):** Significant predictor, reflecting the impact of the 3-month Euribor rate on subscription probability.
+                - **Month_Apr (0.051)** and **Cons. Conf. Index (0.051):** Moderate importance, showing some influence based on the month of contact and consumer confidence.
        
-        - **Predictive Performance:**  
-          The model’s ability to accurately classify clients and minimize unnecessary contacts is driven by its high-importance features. It efficiently directs marketing efforts by making clear decisions based on feature splits.
+            - **Predictive Performance:**  
+            The model’s ability to accurately classify clients and minimize unnecessary contacts is driven by its high-importance features. It efficiently directs marketing efforts by making clear decisions based on feature splits.
        
-        - **Minimizing Contacts:**  
-          By focusing on features like "duration" and "euribor3m," the Decision Tree helps to identify clients more likely to subscribe, thereby reducing the number of unnecessary contacts.
+            - **Minimizing Contacts:**  
+            By focusing on features like "duration" and "euribor3m," the Decision Tree helps to identify clients more likely to subscribe, thereby reducing the number of unnecessary contacts.
     
     - **Logistic Regression Model:**
-        - **Top Features with Positive Coefficients:**
-            - **Cons. Price Index (2.707556):** High positive coefficient, indicating a strong positive effect on the likelihood of subscription. Higher values of this feature significantly increase the probability of subscription.
-            - **Month_Oct (2.433611):** High positive coefficient, showing that contacts made in October are strongly associated with a higher likelihood of subscription.
-            - **Cons. Conf. Index^6 (2.380486):** A high positive coefficient on this transformed feature suggests that very high levels of consumer confidence have a strong positive effect on subscription likelihood.
-            - **Cons. Price Index^2 (1.593425):** Indicates that higher squared values of the cons. price index contribute positively, showing that increases in this feature’s squared term further raise the likelihood of subscription.
+            - **Top Features with Positive Coefficients:**
+                - **Cons. Price Index (2.707556):** High positive coefficient, indicating a strong positive effect on the likelihood of subscription. Higher values of this feature significantly increase the probability of subscription.
+                - **Month_Oct (2.433611):** High positive coefficient, showing that contacts made in October are strongly associated with a higher likelihood of subscription.
+                - **Cons. Conf. Index^6 (2.380486):** A high positive coefficient on this transformed feature suggests that very high levels of consumer confidence have a strong positive effect on subscription likelihood.
+                - **Cons. Price Index^2 (1.593425):** Indicates that higher squared values of the cons. price index contribute positively, showing that increases in this feature’s squared term further raise the likelihood of subscription.
         
-        - **Top Features with Negative Coefficients:**
-            - **Cons. Price Index^6 (-2.886025):** High negative coefficient, suggesting that very high values of this feature decrease the likelihood of subscription. Extreme values in this feature can lower subscription probabilities.
-            - **Month_May (-1.733885):** Negative coefficient shows that contacts made in May are associated with a lower probability of subscription, indicating this month is less favorable for successful subscriptions.
-            - **Duration^2 Cons. Price Index^4 (-1.525438):** Complex interaction where higher values in both the duration and cons. price index raised to the fourth power lead to a decreased likelihood of subscription, suggesting that very long calls combined with high cons. price index values can negatively impact subscription chances.
+            - **Top Features with Negative Coefficients:**
+                - **Cons. Price Index^6 (-2.886025):** High negative coefficient, suggesting that very high values of this feature decrease the likelihood of subscription. Extreme values in this feature can lower subscription probabilities.
+                - **Month_May (-1.733885):** Negative coefficient shows that contacts made in May are associated with a lower probability of subscription, indicating this month is less favorable for successful subscriptions.
+                - **Duration^2 Cons. Price Index^4 (-1.525438):** Complex interaction where higher values in both the duration and cons. price index raised to the fourth power lead to a decreased likelihood of subscription, suggesting that very long calls combined with high cons. price index values can negatively impact subscription chances.
         
-        - **Predictive Performance:**  
-          The model’s coefficients provide insights into how each feature and its transformations influence subscription probabilities. For instance:
-            - **Cons. Price Index (2.707556)** and **Month_Oct (2.433611)** have strong positive effects, meaning clients with higher cons. price index values or those contacted in October are more likely to subscribe.
-            - **Cons. Price Index^2 (1.593425)** further amplifies the effect of this feature, indicating that increases in the cons. price index have a compounded positive impact on subscription probability.
+            - **Predictive Performance:**  
+            The model’s coefficients provide insights into how each feature and its transformations influence subscription probabilities. For instance:
+                - **Cons. Price Index (2.707556)** and **Month_Oct (2.433611)** have strong positive effects, meaning clients with higher cons. price index values or those contacted in October are more likely to subscribe.
+                - **Cons. Price Index^2 (1.593425)** further amplifies the effect of this feature, indicating that increases in the cons. price index have a compounded positive impact on subscription probability.
         
-        - **On the other hand:**
-            - **Cons. Price Index^6 (-2.886025)** and **Month_May (-1.733885)** show strong negative effects, helping to identify and avoid less promising clients, thus improving targeting efficiency.
-            - **Duration^2 Cons. Price Index^4 (-1.525438)** demonstrates that extreme values in both features combined reduce subscription likelihood, guiding the model to avoid these less favorable scenarios.
+            - **On the other hand:**
+                - **Cons. Price Index^6 (-2.886025)** and **Month_May (-1.733885)** show strong negative effects, helping to identify and avoid less promising clients, thus improving targeting efficiency.
+                - **Duration^2 Cons. Price Index^4 (-1.525438)** demonstrates that extreme values in both features combined reduce subscription likelihood, guiding the model to avoid these less favorable scenarios.
 
   
 
@@ -251,6 +249,7 @@ A 70/30 split where random=442 was applied with a stratify parameter to ensure b
 
 The evaluation results are captured below and written to a CSV file available in /results/lgr_all_iterations_summary.csv. Plots that compare the key performance metrics are captured in Figure1, Figure2 and Figure3 in the summary section. Classification reports and Confusion Matrices for each are available in the attached Jupyter notebook.
 
+<sub>
 | **Results Summary: All iterations of Logistic Regression model**                           |                            |                              |                     |                    |                           |                          |                     |                    |                    |                |                 |                |                 |
 |--------------------------------------------------------------------------------------------|----------------------------|------------------------------|---------------------|--------------------|---------------------------|--------------------------|---------------------|--------------------|--------------------|----------------|-----------------|----------------|-----------------|
 | Model                                                                                      | Average Fit Time (seconds) | Train F1 score (cv)          | Test F1 score (cv)  | Test F1 score      | Train Accuracy score (cv) | Test Accuracy score (cv) | Test Accuracy score | PR AUC score       | ROC AUC score      | True Positives | False Positives | True Negatives | False Negatives |
@@ -263,13 +262,14 @@ The evaluation results are captured below and written to a CSV file available in
 | Model                                                                                      | Threshold                  | Test F1 score (at threshold) | PR AUC score        | ROC AUC score      | True Positives            | False Positives          | True Negatives      | False Negatives    |                    |                |                 |                |                 |
 | LogisticRegression with SMOTE on train (RandomizedSearchCV)                                | 0.6                        | 0.5873846920967340           | 0.6658175572987420  | 0.8620374777831950 | 1178                      | 1485                     | 9337                | 170                |                    |                |                 |                |                 |
 | LogisticRegression (RandomizedSearchCV best estimator) threshold tuned for max F1          | 0.09862493620063760        | 0.5484147386461010           | 0.42128708494436700 | 0.8562920926544290 | 960                       | 1193                     | 9629                | 388                |                    |                |                 |                |                 |
-
+</sub>
 
 **Decision Tree Classifier:** All iterations of this classifier used Stratified K-Fold cross validation to reduce the risk of overfitting. The iterations include, a) Iteration1 – evaluation with SMOTE sampling on entire dataset, b) Iteration2 – evaluation with SMOTE resampled training data evaluation with SMOTE sampling on entire dataset, c) Iteration3 – evaluation with SMOTE resampled training data and hyper parameter tuning with Grid Search, d) Iteration4 – evaluation with SMOTE resampled training data with both hyper parameter tuning and decision threshold tuning to maximize F1 score.
 
 The evaluation results are captured below and written to a CSV file available in /results/dc_all_iterations_summary.csv. Plots that compare and summarize the key performance metrics are captured in Figure1, 2 and 3 in the summary section. Classification reports and Confusion Matrices for each are available in the attached Jupyter notebook.
 
-| **Results Summary: All iterations of Logistic Regression model**                    |                            |                              |                     |                    |                           |                          |                     |                    |                    |                |                 |                |                 |
+<sub>
+| **Results Summary: All iterations of DecisionTree model**                    |                            |                              |                     |                    |                           |                          |                     |                    |                    |                |                 |                |                 |
 |-------------------------------------------------------------------------------------|----------------------------|------------------------------|---------------------|--------------------|---------------------------|--------------------------|---------------------|--------------------|--------------------|----------------|-----------------|----------------|-----------------|
 | **Model**                                                                           | Average Fit Time (seconds) | Train F1 score (cv)          | Test F1 score (cv)  | Test F1 score      | Train Accuracy score (cv) | Test Accuracy score (cv) | Test Accuracy score | PR AUC score       | ROC AUC score      | True Positives | False Positives | True Negatives | False Negatives |
 | **DecisionTree with SMOTE on train**                                                | 0.14999704360961900        | 0.9995201389558150           | 0.8766936881167160  | 0.4899744804958080 | 0.9176739455472840        | 0.9176739455472840       | 0.8850451930977810  | 0.517891588109558  | 0.7158539835602500 | 672            | 723             | 10099          | 676             |
@@ -281,6 +281,7 @@ The evaluation results are captured below and written to a CSV file available in
 | **Model**                                                                           | Threshold                  | Test F1 score (at threshold) | PR AUC score        | ROC AUC score      | True Positives            | False Positives          | True Negatives      | False Negatives    |                    |                |                 |                |                 |
 | **DecisionTree with SMOTE on train (GridSearchCV)**                                 | 0.6                        | 0.6157728706624610           | 0.6270820079471780  | 0.7980582882325100 | 976                       | 846                      | 9976                | 372                |                    |                |                 |                |                 |
 | **DecisionTree (GridSearchCV best estimator) threshold tuned for max F1**           | 0.09862493620063760        | 0.5484147386461010           | 0.42128708494436700 | 0.8562920926544290 | 960                       | 1193                     | 9629                | 388                |                    |                |                 |                |                 |
+</sub>
 
 **K-Nearest Neighbors (KNN) Classifier:** All iterations of this classifier used Stratified K-Fold cross validation to reduce the risk of overfitting. The iterations include, b) Iteration2 – evaluation with SMOTE sampling on entire dataset, c) Iteration3 – evaluation with SMOTE resampled training data and hyper parameter tuning with GridSearch, d) Iteration4 – evaluation with SMOTE resampled training data with both hyper parameter tuning and decision threshold tuning to maximize F1 score.
 
