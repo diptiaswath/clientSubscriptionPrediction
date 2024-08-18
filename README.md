@@ -1,42 +1,40 @@
 ## Precision Marketing for Bank Deposits
 
-Table of Contents
+## Table of Contents
 
-[Precision Marketing for Bank Deposits](#precision-marketing-for-bank-deposits)
+1. [Objective](#objective)
 
-[Objective](#objective)
+    -   [Key Performance Metrics](#key-performance-metrics)
 
-[Key Performance Metrics](#key-performance-metrics)
+    -   [Project Scope](#project-scope)
 
-[Project Scope](#project-scope)
+2.  [Executive Summary](#executive-summary)
 
-[Executive Summary](#executive-summary)
+    -   [Key Factors Considered](#key-factors-considered)
 
-[Key Factors Considered](#key-factors-considered)
+    -   [Key Insights and Implications](#key-insights-and-implications)
 
-[Key Insights and Implications](#key-insights-and-implications)
+    -   [Evaluation Summary](#evaluation-summary)
 
-[Evaluation Summary](#evaluation-summary)
+3.  [Recommendation](#recommendation)
 
-[Recommendation](#recommendation)
+4.  [Feature Importance in hyperparameter-tuned Decision Tree vs. Logistic Regression](#feature-importance-in-hyperparameter-tuned-decision-tree-vs-logistic-regression)
 
-[Feature Importance in hyperparameter-tuned Decision Tree vs. Logistic Regression](#feature-importance-in-hyperparameter-tuned-decision-tree-vs-logistic-regression)
+5.  [GitHub Repository](#github-repository)
 
-[GitHub Repository](#github-repository)
+6.  [Deep Dives: Unveiling Insights with the CRISP-DM Framework](#deep-dives-unveiling-insights-with-the-crisp-dm-framework)
 
-[Deep Dives: Unveiling Insights with the CRISP-DM Framework](#deep-dives-unveiling-insights-with-the-crisp-dm-framework)
+    -   [Business Use Case: Targeted Marketing Campaign for Bank Term Deposits](#business-use-case-targeted-marketing-campaign-for-bank-term-deposits)
 
-[Business Use Case: Targeted Marketing Campaign for Bank Term Deposits](#business-use-case-targeted-marketing-campaign-for-bank-term-deposits)
+    -   [Understanding Data and Task](#understanding-data-and-task)
 
-[Understanding Data and Task](#understanding-data-and-task)
+    -   [Data Preparation](#data-preparation)
 
-[Data Preparation](#data-preparation)
+    -   [Data Preprocessing](#data-preprocessing)
 
-[Data Preprocessing](#data-preprocessing)
+    -   [Iterative Modeling and Evaluations](#iterative-modeling-and-evaluations)
 
-[Iterative Modeling and Evaluations](#iterative-modeling-and-evaluations)
-
-[Conclusions and Future Work](#conclusions-and-future-work)
+7.  [Conclusions and Future Work](#conclusions-and-future-work)
 
 ## Objective
 
@@ -92,6 +90,8 @@ Additionally, data analysis revealed that there were no significant linear relat
 
 After evaluating the performance of Logistic Regression, Decision Tree, and Support Vector Classifier (SVC) models through iterative (refer Figure1, Figure2, Figure3) hyperparameter tuning and decision threshold adjustments, the following findings stand out based on the need to accurately predict client subscriptions and minimize unnecessary contacts:
 
+
+
 1.  **Best Performing Models:**
 
     -   **Hyperparameter-Tuned Decision Tree:** Achieved the highest F1 score, which is essential for balancing precision and recall—key for both accurately predicting client subscriptions and minimizing unnecessary contacts. This model also has the advantage of faster training and prediction times, making it suitable for real-time applications.
@@ -100,9 +100,13 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
     -   **Hyperparameter-Tuned Logistic Regression:** While offering the best PR AUC and ROC AUC scores, which reflect strong performance in distinguishing between classes, its F1 score is slightly lower than the Decision Tree. It still performs well in reducing false positives but is slower to train and predict.
 
+
+
 2.  **Impact of Threshold Tuning:**
 
     -   Fine-tuning the decision thresholds for all models to maximize the F1 score resulted in lower F1 scores, suggesting that this step does not improve performance in terms of reducing false positives or enhancing predictive accuracy and should be discarded.
+
+
 
 3.  **Training Speed and Efficiency:**
 
@@ -112,9 +116,13 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
     -   The Logistic Regression model performs well in terms of PR AUC and ROC AUC but lags behind in training speed compared to the Decision Tree.
 
+
+
 4.  **Interpretability:**
 
     -   Both the Decision Tree and Logistic Regression models offer clear insights into feature importance and decision-making processes, which is helpful for understanding how the model is predicting client subscriptions. The SVC model, while effective in some cases, lacks intuitive interpretability, making it harder to explain predictions to stakeholders.
+
+
 
 5.  **Feature Importance in Decision Tree vs. Logistic Regression:**
 
@@ -134,9 +142,6 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
 <sub>Figure3: Model Comparison with Hyper-Parameter and Decision Threshold tuning to maximize F1 score. After additional tuning of decision thresholds to maximize the F1 score, the best estimators from GridSearchCV or RandomizedSearchCV were used for the Logistic Regression, Decision Tree, and SVC models. The SVC model was fine-tuned for its decision threshold with both the basic (non-hyper-tuned) model and the best estimator from hyperparameter tuning, as the basic SVC model initially showed the best performance, achieving a high F1 score along with well-balanced PR AUC and ROC AUC scores before hyper=parameter tuning. When optimizing for a higher F1 score, the hyperparameter-tuned Decision Tree model (without adjusting the decision threshold) achieves the highest F1 score. This is followed by the basic (non-hyper-tuned) SVC model, and then the hyperparameter-tuned Logistic Regression model. However, fine-tuning the decision threshold to maximize the F1 score actually lowered the F1 score across all models, suggesting that this step can be discarded.</sub>
 
-### 
-
-### 
 
 ### Recommendation
 
@@ -148,21 +153,23 @@ Although the Logistic Regression model (Figure6, Figure7) has better PR AUC and 
 
 <sub>Figure4: Classification Report and best hyper-parameters for recommended Decision Tree classifier</sub>
 
+
 ![A graph of a graph Description automatically generated with medium confidence](images/9022c3813b201b2575ccac85159fc397.png)
 
 <sub>Figure5: Confusion Matrix, PR AUC and ROC AUC curve for recommended Decision Tree</sub>
+
 
 ![A screenshot of a computer Description automatically generated](images/eed613a703280f1fd7812fc5584cfa5d.jpeg)
 
 <sub>Figure6: Classification Report and best hyper-parameters for Logistic Regression classifier</sub>
 
-### 
+
 
 ![A screenshot of a computer Description automatically generated](images/d35c43464a1d5b82919d9da69f8f6cad.png)
 
 <sub>Figure7: Confusion Matrix, PR AUC and ROC AUC curve for tuned Logistic Regression classifier</sub>
 
-### 
+ 
 
 ### Feature Importance in hyperparameter-tuned Decision Tree vs. Logistic Regression
 
@@ -298,7 +305,7 @@ A 70/30 split where random=442 was applied with a stratify parameter to ensure b
 
 The evaluation results are captured below and written to [this CSV file](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/main/results/lgr_all_iterations_summary.csv). Plots that compare the key performance metrics are captured in Figure1, Figure2 and Figure3 in the summary section. Classification reports and Confusion Matrices for each are available in the attached Jupyter notebook.
 
-<div style="font-size: 8px;">
+
 | **Results Summary: All iterations of Logistic Regression model**                           |                            |                              |                     |                    |                           |                          |                     |                    |                    |                |                 |                |                 |
 |--------------------------------------------------------------------------------------------|----------------------------|------------------------------|---------------------|--------------------|---------------------------|--------------------------|---------------------|--------------------|--------------------|----------------|-----------------|----------------|-----------------|
 | Model                                                                                      | Average Fit Time (seconds) | Train F1 score (cv)          | Test F1 score (cv)  | Test F1 score      | Train Accuracy score (cv) | Test Accuracy score (cv) | Test Accuracy score | PR AUC score       | ROC AUC score      | True Positives | False Positives | True Negatives | False Negatives |
@@ -311,14 +318,15 @@ The evaluation results are captured below and written to [this CSV file](https:/
 | Model                                                                                      | Threshold                  | Test F1 score (at threshold) | PR AUC score        | ROC AUC score      | True Positives            | False Positives          | True Negatives      | False Negatives    |                    |                |                 |                |                 |
 | LogisticRegression with SMOTE on train (RandomizedSearchCV)                                | 0.6                        | 0.5873846920967340           | 0.6658175572987420  | 0.8620374777831950 | 1178                      | 1485                     | 9337                | 170                |                    |                |                 |                |                 |
 | LogisticRegression (RandomizedSearchCV best estimator) threshold tuned for max F1          | 0.09862493620063760        | 0.5484147386461010           | 0.42128708494436700 | 0.8562920926544290 | 960                       | 1193                     | 9629                | 388                |                    |                |                 |                |                 |
-</div>
+
 
 
 **Decision Tree Classifier:** All iterations of this classifier used Stratified K-Fold cross validation to reduce the risk of overfitting. The iterations include, a) Iteration1 – evaluation with SMOTE sampling on entire dataset, b) Iteration2 – evaluation with SMOTE resampled training data evaluation with SMOTE sampling on entire dataset, c) Iteration3 – evaluation with SMOTE resampled training data and hyper parameter tuning with Grid Search, d) Iteration4 – evaluation with SMOTE resampled training data with both hyper parameter tuning and decision threshold tuning to maximize F1 score.
 
 The evaluation results are captured below and written to [this CSV file](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/main/results/dc_all_iterations_summary.csv). Plots that compare and summarize the key performance metrics are captured in Figure1, Figure2 and Figure3 in the summary section. Classification reports and Confusion Matrices for each are available in the attached Jupyter notebook.
 
-<div style="font-size: 8px;">
+
+
 | **Results Summary: All iterations of Decision Tree model**                    |                            |                              |                     |                    |                           |                          |                     |                    |                    |                |                 |                |                 |
 |-------------------------------------------------------------------------------------|----------------------------|------------------------------|---------------------|--------------------|---------------------------|--------------------------|---------------------|--------------------|--------------------|----------------|-----------------|----------------|-----------------|
 | **Model**                                                                           | Average Fit Time (seconds) | Train F1 score (cv)          | Test F1 score (cv)  | Test F1 score      | Train Accuracy score (cv) | Test Accuracy score (cv) | Test Accuracy score | PR AUC score       | ROC AUC score      | True Positives | False Positives | True Negatives | False Negatives |
@@ -331,13 +339,15 @@ The evaluation results are captured below and written to [this CSV file](https:/
 | **Model**                                                                           | Threshold                  | Test F1 score (at threshold) | PR AUC score        | ROC AUC score      | True Positives            | False Positives          | True Negatives      | False Negatives    |                    |                |                 |                |                 |
 | **DecisionTree with SMOTE on train (GridSearchCV)**                                 | 0.6                        | 0.6157728706624610           | 0.6270820079471780  | 0.7980582882325100 | 976                       | 846                      | 9976                | 372                |                    |                |                 |                |                 |
 | **DecisionTree (GridSearchCV best estimator) threshold tuned for max F1**           | 0.09862493620063760        | 0.5484147386461010           | 0.42128708494436700 | 0.8562920926544290 | 960                       | 1193                     | 9629                | 388                |                    |                |                 |                |                 |
-</div>
+
+
 
 **K-Nearest Neighbors (KNN) Classifier:** All iterations of this classifier used Stratified K-Fold cross validation to reduce the risk of overfitting. The iterations include, b) Iteration2 – evaluation with SMOTE sampling on entire dataset, c) Iteration3 – evaluation with SMOTE resampled training data and hyper parameter tuning with GridSearch, d) Iteration4 – evaluation with SMOTE resampled training data with both hyper parameter tuning and decision threshold tuning to maximize F1 score.
 
 The evaluation results are captured below and written to [this CSV file](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/main/results/knn_all_iterations_summary.csv). Plots that compare the key performance metrics are captured in Figure1, Figure2 and Figure3 in the summary section. Classification reports and Confusion Matrices for each are available in the attached Jupyter notebook.
 
-<div style="font-size: 8px;">
+
+
 | **Results Summary: All iterations of KNN model**                           |                            |                              |                     |                    |                           |                          |                     |                    |                    |                |                 |                |                 |
 |----------------------------------------------------------------------------|----------------------------|------------------------------|---------------------|--------------------|---------------------------|--------------------------|---------------------|--------------------|--------------------|----------------|-----------------|----------------|-----------------|
 | **Model**                                                                  | Average Fit Time (seconds) | Train F1 score (cv)          | Test F1 score (cv)  | Test F1 score      | Train Accuracy score (cv) | Test Accuracy score (cv) | Test Accuracy score | PR AUC score       | ROC AUC score      | True Positives | False Positives | True Negatives | False Negatives |
@@ -350,13 +360,15 @@ The evaluation results are captured below and written to [this CSV file](https:/
 | **Model**                                                                  | Threshold                  | Test F1 score (at threshold) | PR AUC score        | ROC AUC score      | True Positives            | False Positives          | True Negatives      | False Negatives    |                    |                |                 |                |                 |
 | **KNN with SMOTE on train (GridSearchCV)**                                 | 0.6                        | 0.5303668069753460           | 0.5692492521669080  | 0.7765137452173200 | 882                       | 1096                     | 9726                | 466                |                    |                |                 |                |                 |
 | **KNN (GridSearchCV best estimator) threshold tuned for max F1**           | 0.09862493620063760        | 0.5484147386461010           | 0.42128708494436700 | 0.8562920926544290 | 960                       | 1193                     | 9629                | 388                |                    |                |                 |                |                 |
-</div>
+
+
 
 **Support Vector Classifier (SVC):** All iterations of this classifier used Stratified K-Fold cross validation to reduce the risk of overfitting. The iterations include, a) Iteration1 – evaluation with SMOTE resampled training data, b) Iteration2 – evaluation with SMOTE sampling on entire dataset, c) Iteration3 – evaluation with SMOTE resampled training data and hyper parameter tuning with Randomized Search since Grid Search was computationally expensive and time consuming, d) Iteration4 – evaluation with SMOTE resampled training data with both hyper parameter tuning and decision threshold tuning to maximize F1 score.
 
 The evaluation results are captured below and written to [this CSV file](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/main/results/svc_all_iterations_summary.csv). Plots that compare the key performance metrics are captured in Figure1, Figure2 and Figure3 in the summary section. Classification reports and Confusion Matrices for each are available in the attached Jupyter notebook.
 
-<div style="font-size: 8px;">
+
+
 | **Results Summary: All iterations of SVC model**                           |                            |                              |                     |                    |                           |                          |                     |                    |                    |                |                 |                |                 |
 |----------------------------------------------------------------------------|----------------------------|------------------------------|---------------------|--------------------|---------------------------|--------------------------|---------------------|--------------------|--------------------|----------------|-----------------|----------------|-----------------|
 | **Model**                                                                  | Average Fit Time (seconds) | Train F1 score (cv)          | Test F1 score (cv)  | Test F1 score      | Train Accuracy score (cv) | Test Accuracy score (cv) | Test Accuracy score | PR AUC score       | ROC AUC score      | True Positives | False Positives | True Negatives | False Negatives |
@@ -371,37 +383,43 @@ The evaluation results are captured below and written to [this CSV file](https:/
 | **SVC with SMOTE on train threshold tuned for max F1**                     | 0.09862493620063760        | 0.5484147386461010           | 0.42128708494436700 | 0.8562920926544290 | 960                       | 1193                     | 9629                | 388                |                    |                |                 |                |                 |
 | **SVC with SMOTE on train (GridSearchCV)**                                 | 0.6                        | 0.3583868010999080           | 0.3883420215615050  | 0.5955210207583520 | 391                       | 443                      | 10379               | 957                |                    |                |                 |                |                 |
 | **SVC (RandomizedSearchCV best estimator) threshold tuned for max F1**     | 0.09862493620063760        | 0.5484147386461010           | 0.42128708494436700 | 0.8562920926544290 | 960                       | 1193                     | 9629                | 388                |                    |                |                 |                |                 |
-</div>
+
+
 
 **Model Comparison with SMOTE resampling on training data across all classifiers**
 
 Located [here](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/main/results/results_summary_with_smote_on_train.csv) with their respective Classification reports and Confusion Matrices in the Jupyter notebook.
 
-<div style="font-size: 8px;">
+
+
 | **Model**                                  | **Average Fit Time (seconds)** | **Train F1 score (cv)** | **Test F1 score (cv)** | **Test F1 score**  | **Train Accuracy score (cv)** | **Test Accuracy score (cv)** | **Test Accuracy score** | **PR AUC score**   | **ROC AUC score**  | **True Positives** | **False Positives** | **True Negatives** | **False Negatives** |
 |--------------------------------------------|--------------------------------|-------------------------|------------------------|--------------------|-------------------------------|------------------------------|-------------------------|--------------------|--------------------|--------------------|---------------------|--------------------|---------------------|
 | **LogisticRegression with SMOTE on train** | 0.558314037322998              | 0.8316870608728630      | 0.8297503732432620     | 0.6090580716865800 | 0.8837566102648000            | 0.882474799178917            | 0.8843878389482330      | 0.6603288744967030 | 0.8531646711528940 | 1096               | 1155                | 9667               | 252                 |
 | **KNN with SMOTE on train**                | 0.012759971618652300           | 0.9058447148428780      | 0.8701632942200310     | 0.5449900652852680 | 0.9329955153757360            | 0.9061979051175690           | 0.8682826622843060      | 0.592713579352367  | 0.7999474364507510 | 960                | 1215                | 9607               | 388                 |
 | **DecisionTree with SMOTE on train**       | 0.14999704360961900            | 0.9995201389558150      | 0.8766936881167160     | 0.4899744804958080 | 0.9176739455472840            | 0.9176739455472840           | 0.8850451930977810      | 0.517891588109558  | 0.7158539835602500 | 672                | 723                 | 10099              | 676                 |
 | **SVC with SMOTE on train**                | 45.27653098106380              | 0.8893727556597690      | 0.8768141264346020     | 0.6183310533515730 | 0.919825741820244             | 0.9104481410808420           | 0.8853738701725550      | 0.6201223076378820 | 0.7816271749985060 | 1130               | 1177                | 9645               | 218                 |
-</div>
+
+
 
 **Model Comparison with SMOTE resampling on training data across all hyper parameter tuned classifiers**
 
 Located [here](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/main/results/results_summary_with_hyperparam_tune.csv) with their respective Classification reports and Confusion Matrices in the Jupyter notebook.
 
-<div style="font-size: 8px;">
+
+
 | **Model**                                                       | **Average Fit Time (seconds)** | **Train F1 score (cv)** | **Test F1 score (cv)** | **Test F1 score**  | **Train Accuracy score (cv)** | **Test Accuracy score (cv)** | **Test Accuracy score** | **PR AUC score**   | **ROC AUC score**  | **True Positives** | **False Positives** | **True Negatives** | **False Negatives** |
 |-----------------------------------------------------------------|--------------------------------|-------------------------|------------------------|--------------------|-------------------------------|------------------------------|-------------------------|--------------------|--------------------|--------------------|---------------------|--------------------|---------------------|
 | **LogisticRegression with SMOTE on train (RandomizedSearchCV)** | 0.7146973609924320             | 0.8465928629060450      | 0.8450333205210970     | 0.5873846920967340 | 0.8875355299096930            | 0.8863533585827330           | 0.8640098603122430      | 0.6658175572987420 | 0.8620374777831950 | 1178               | 1485                | 9337               | 170                 |
 | **KNN with SMOTE on train (GridSearchCV)**                      | 0.017383384704589800           | 0.9335434365263550      | 0.8768492575545210     | 0.5303668069753460 | 0.9534840464720970            | 0.9116965409979040           | 0.8716516023007400      | 0.5692492521669080 | 0.7765137452173200 | 882                | 1096                | 9726               | 466                 |
 | **DecisionTree with SMOTE on train (GridSearchCV)**             | 0.10144262313842800            | 0.8775799775727750      | 0.8646177110428650     | 0.6157728706624610 | 0.9174747001297660            | 0.9088808572845290           | 0.8999178307313070      | 0.6270820079471780 | 0.7980582882325100 | 976                | 846                 | 9976               | 372                 |
 | **SVC with SMOTE on train (GridSearchCV)**                      | 609.6910942077640              | 0.9914250302478760      | 0.9204929723965370     | 0.3583868010999080 | 0.9942552380317240            | 0.9464972845345150           | 0.8849630238290880      | 0.3883420215615050 | 0.5955210207583520 | 391                | 443                 | 10379              | 957                 |
-</div>
+
+
 
 **Model Comparison with SMOTE resampling on training data across all hyper parameter tuned classifiers together with decision threshold tuned for maximum F1 Score**
 
 Located [here](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/main/results/results_summary_with_more_fine_tune.csv) with their respective Classification reports and Confusion Matrices in the Jupyter notebook.
+
 
 | **Model**                                                                             | **Threshold**       | **Test F1 score (at threshold)** | **PR AUC score**    | **ROC AUC score**  | **True Positives** | **False Positives** | **True Negatives** | **False Negatives** |
 |---------------------------------------------------------------------------------------|---------------------|----------------------------------|---------------------|--------------------|--------------------|---------------------|--------------------|---------------------|
@@ -416,7 +434,8 @@ Located [here](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/
 | **SVC with SMOTE on train (GridSearchCV)**                                            | 0.6                 | 0.3583868010999080               | 0.3883420215615050  | 0.5955210207583520 | 391                | 443                 | 10379              | 957                 |
 | **SVC (RandomizedSearchCV best estimator) threshold tuned for max F1**                | 0.09862493620063760 | 0.5484147386461010               | 0.42128708494436700 | 0.8562920926544290 | 960                | 1193                | 9629               | 388                 |
 
-### Conclusions and Future Work
+
+## Conclusions and Future Work
 
 This report applies the CRISP-DM framework to iteratively evaluate, compare and improve the four classification models to predict whether a client will subscribe to a term deposit for a Portuguese banking institution. Each CRISP-DM iteration has been of great value, since the predictive performance on the test data-set increased in some iterations while reducing on a few others as summarized across Figure1, 2 and 3. The recommended model is a hyper-tuned Decision Tree classifier that achieves a higher F1 score with an emphasis on training speed, efficiency and model interpretability with the feature importances discussed at length.
 
