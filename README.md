@@ -1,9 +1,8 @@
-# Client Subscription Prediction
 
-**Table of content:**
+**Table of Contents:**
  - [Objective](#item-objective)
-  - [Key Performance Metrics](#sub-item-kpi)
-  - [Project Scope](#sub-item-ps)
+      - [Key Performance Metrics](#sub-item-kpi)
+      - [Project Scope](#sub-item-ps)
  - [Executive Summary](#item-execsummary)
  - [GitHub Repository](#item-ghrepo)
 
@@ -79,6 +78,7 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
     -   Fine-tuning the decision thresholds for all models to maximize the F1 score resulted in lower F1 scores, suggesting that this step does not improve performance in terms of reducing false positives or enhancing predictive accuracy and should be discarded.
 
+
 3.  **Training Speed and Efficiency:**
 
     -   The Decision Tree model is the fastest to train and predict, an important consideration when scaling up predictions for large datasets or when quick decisions are needed for client subscription campaigns.
@@ -91,6 +91,7 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
     -   Both the Decision Tree and Logistic Regression models offer clear insights into feature importance and decision-making processes, which is helpful for understanding how the model is predicting client subscriptions. The SVC model, while effective in some cases, lacks intuitive interpretability, making it harder to explain predictions to stakeholders.
 
+
 5.  **Feature Importance in Decision Tree vs. Logistic Regression:**
 
     -   Decision Tree Model: Features like "duration" (0.410) and "euribor3m" (0.346) are straightforward indicators of client subscription likelihood. The model’s structure helps minimize unnecessary contacts by focusing on these critical factors, ensuring that marketing efforts are effectively targeted.
@@ -99,15 +100,15 @@ After evaluating the performance of Logistic Regression, Decision Tree, and Supp
 
 ![A graph of different colored bars Description automatically generated](images/f902cf422e13db97fbb53679bcc11c78.png)
 
-Figure1: Basic Model Comparison with no tuning. In this comparison, the Support Vector Classifier (SVC) model demonstrates superior performance with a higher F1 score compared to the Logistic Regression model. However, the Logistic Regression model shows competitive performance with similar F1 scores, and it outperforms the SVC model in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Additionally, the Logistic Regression model offers advantages in terms of interpretability and efficiency, consuming less time for both training and prediction.
+<sub>Figure1: Basic Model Comparison with no tuning. In this comparison, the Support Vector Classifier (SVC) model demonstrates superior performance with a higher F1 score compared to the Logistic Regression model. However, the Logistic Regression model shows competitive performance with similar F1 scores, and it outperforms the SVC model in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Additionally, the Logistic Regression model offers advantages in terms of interpretability and efficiency, consuming less time for both training and prediction.</sub>
 
 ![A graph of different colored bars Description automatically generated](images/c5bde96a8fe995c685acb03d6aa97d00.png)
 
-Figure2: Model Comparison with Hyper-Parameter tuning. With hyperparameter tuning using GridSearchCV or RandomizedSearchCV. The Decision Tree model achieves the highest F1 score, followed by the Logistic Regression model. However, Logistic Regression outperforms the Decision Tree in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Both models offer good interpretability, with the Decision Tree being more computationally efficient. On the other hand, the Support Vector Classifier (SVC), with hyperparameter tuning, records the lowest F1, PR AUC, and ROC AUC scores.
+<sub>Figure2: Model Comparison with Hyper-Parameter tuning. With hyperparameter tuning using GridSearchCV or RandomizedSearchCV. The Decision Tree model achieves the highest F1 score, followed by the Logistic Regression model. However, Logistic Regression outperforms the Decision Tree in both Precision-Recall AUC (PR AUC) and ROC AUC scores. Both models offer good interpretability, with the Decision Tree being more computationally efficient. On the other hand, the Support Vector Classifier (SVC), with hyperparameter tuning, records the lowest F1, PR AUC, and ROC AUC scores.</sub>
 
 ![A graph of different colored bars Description automatically generated with medium confidence](images/ad7c21f654236a3b559e619f52f4c948.png)
 
-Figure3: Model Comparison with Hyper-Parameter and Decision Threshold tuning to maximize F1 score. After additional tuning of decision thresholds to maximize the F1 score, the best estimators from GridSearchCV or RandomizedSearchCV were used for the Logistic Regression, Decision Tree, and SVC models. The SVC model was fine-tuned for its decision threshold with both the basic (non-hyper-tuned) model and the best estimator from hyperparameter tuning, as the basic SVC model initially showed the best performance, achieving a high F1 score along with well-balanced PR AUC and ROC AUC scores before hyper=parameter tuning. When optimizing for a higher F1 score, the hyperparameter-tuned Decision Tree model (without adjusting the decision threshold) achieves the highest F1 score. This is followed by the basic (non-hyper-tuned) SVC model, and then the hyperparameter-tuned Logistic Regression model. However, fine-tuning the decision threshold to maximize the F1 score actually lowered the F1 score across all models, suggesting that this step can be discarded.
+<sub>Figure3: Model Comparison with Hyper-Parameter and Decision Threshold tuning to maximize F1 score. After additional tuning of decision thresholds to maximize the F1 score, the best estimators from GridSearchCV or RandomizedSearchCV were used for the Logistic Regression, Decision Tree, and SVC models. The SVC model was fine-tuned for its decision threshold with both the basic (non-hyper-tuned) model and the best estimator from hyperparameter tuning, as the basic SVC model initially showed the best performance, achieving a high F1 score along with well-balanced PR AUC and ROC AUC scores before hyper=parameter tuning. When optimizing for a higher F1 score, the hyperparameter-tuned Decision Tree model (without adjusting the decision threshold) achieves the highest F1 score. This is followed by the basic (non-hyper-tuned) SVC model, and then the hyperparameter-tuned Logistic Regression model. However, fine-tuning the decision threshold to maximize the F1 score actually lowered the F1 score across all models, suggesting that this step can be discarded.</sub>
 
 ### Recommendation
 
@@ -123,15 +124,14 @@ Figure4: Classification Report and best hyper-parameters for recommended Decisio
 
 Figure5: Confusion Matrix, PR AUC and ROC AUC curve for recommended Decision Tree
 
-### ![A screenshot of a computer Description automatically generated](images/eed613a703280f1fd7812fc5584cfa5d.jpeg)
+![A screenshot of a computer Description automatically generated](images/eed613a703280f1fd7812fc5584cfa5d.jpeg)
 
 Figure6: Classification Report and best hyper-parameters for Logistic Regression classifier
 
-### 
-
-![](images/d35c43464a1d5b82919d9da69f8f6cad.png)
+![A screenshot of a computer Description automatically generated](images/d35c43464a1d5b82919d9da69f8f6cad.png)
 
 Figure7: Confusion Matrix, PR AUC and ROC AUC curve for tuned Logistic Regression classifier
+[ADD PIC]
 
 ### Feature Importance in hyperparameter-tuned Decision Tree v.s. Logistic Regression
 
