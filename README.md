@@ -270,18 +270,11 @@ As part data preparation, prepared data to: a) clean up duplicate rows, b) filte
 ### Data Preprocessing
 
 Considered features that could be dropped based on their permutation importance.
-
 -   Zero-Importance features: Historical information from previous campaigns - pdays, previous
-
 -   Low- Importance features: month, loan, day_of_week, default, contract
-
 -   Negative-Importance features: education, job, housing, marital
 
-Decided to drop zero and low-importance features: pdays, previous, contract, marital as
-
-these were observed to be safe from their [KDE plots](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/main/plots/autoviz_plots_cleaned_data/y/Dist_Plots_Numerics.svg) in addition to their feature importances captured below.
-
-![A graph showing a number of permutation Description automatically generated](images/70cdcf3494c67c431c1e71e5bbf8c45e.jpeg)
+Decided to drop zero and low-importance features: pdays, previous, contract, marital as these were observed to be safe from their [KDE plots](https://github.com/diptiaswath/clientSubscriptionPrediction/blob/main/plots/autoviz_plots_cleaned_data/y/Dist_Plots_Numerics.svg) in addition to their feature importances captured below. ![A graph showing a number of permutation Description automatically generated](images/70cdcf3494c67c431c1e71e5bbf8c45e.jpeg)
 
 In subsequent iterations as part of improving model performance, also decided to drop a low and negative importance feature: housing and default. This resulted in 12 predictor variables and 1 target variable, with 40566 entries.
 
