@@ -48,7 +48,7 @@ To achieve this objective, the model should:
 
 -   **Minimize Unnecessary Contacts:** Reduce false positives to limit the number of clients contacted unnecessarily.
 
-The model should strike a balance between high precision to reduce unnecessary contacts and high recall to ensure successful subscriptions are correctly identified. The goal is to retain or improve the key performance metrics - **F1 score** and **PR AUC scores** that were observed before any hyperparameter tuning or decision threshold adjustments. This ensures that the model continues to perform well in terms of accuracy and efficiency. **ROC AUC** is also considered as an evaluation metric here for measuring the model’s overall performance.
+The model should strike a balance between high precision to reduce unnecessary contacts and high recall to ensure successful subscriptions are correctly identified. The goal is to retain or improve the key performance metrics - **F1 score** and **PR AUC scores** that were observed before any hyperparameter tuning or decision threshold adjustments. This ensures that the model continues to perform well in terms of accuracy and efficiency. **ROC AUC scores** is also considered as an evaluation metric here for measuring the model’s overall performance.
 
 **F1-Score**: This metric balances precision and recall, providing a comprehensive measure of the model’s ability to correctly identify subscribers while minimizing false positives.
 
@@ -58,7 +58,7 @@ The model should strike a balance between high precision to reduce unnecessary c
 
 ### Project Scope
 
-In this project, we intend to compare the performance of classifiers: K-Nearest Neighbors, Logistic Regression, Decision Trees, and Support Vector Machines. We use a multivariate dataset related to marketing bank products via telephone to predict whether a client will subscribe to a term deposit (variable y). This dataset falls under the business subject area and focuses on predicting client subscriptions based on various features. This dataset is based on ["Bank Marketing" UCI dataset](http://archive.ics.uci.edu/ml/datasets/Bank+Marketing).
+In this project, we intend to compare the performance of classifiers: K-Nearest Neighbors, Logistic Regression, Decision Trees, and Support Vector Machines. We use a multivariate dataset related to marketing bank products via telephone to predict whether a client will subscribe to a term deposit (variable y). This dataset - ["Bank Marketing" UCI dataset](http://archive.ics.uci.edu/ml/datasets/Bank+Marketing), is related with direct marketing campaigns of a Portuguese banking institution and classification model focuses on predicting client subscriptions based on various features. 
 
 ## Executive Summary
 
