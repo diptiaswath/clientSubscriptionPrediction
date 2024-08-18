@@ -58,7 +58,7 @@ The model should strike a balance between high precision to reduce unnecessary c
 
 ### Project Scope
 
-In this project, we intend to compare the performance of classifiers: K-Nearest Neighbors, Logistic Regression, Decision Trees, and Support Vector Machines. We use a multivariate dataset related to marketing bank products via telephone to predict whether a client will subscribe to a term deposit (variable y). This dataset - ["Bank Marketing" UCI dataset](http://archive.ics.uci.edu/ml/datasets/Bank+Marketing), is related with direct marketing campaigns of a Portuguese banking institution and classification model focuses on predicting client subscriptions based on various features. 
+In this project, we intend to compare the performance of classifiers: K-Nearest Neighbors, Logistic Regression, Decision Trees, and Support Vector Machines. We use a multivariate dataset related to marketing bank products via telephone to predict whether a client will subscribe to a term deposit (variable y). This dataset - ["Bank Marketing" UCI dataset](http://archive.ics.uci.edu/ml/datasets/Bank+Marketing), is related with direct marketing campaigns of a Portuguese banking institution and its classification model focuses on predicting client subscriptions based on various features. 
 
 ## Executive Summary
 
