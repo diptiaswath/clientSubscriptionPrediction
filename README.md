@@ -159,6 +159,7 @@ Although the Logistic Regression model (Figure6, Figure7) has better PR AUC and 
 
 ![A screenshot of a computer Description automatically generated](images/download-1.png)
 ![A screenshot of a computer Description automatically generated](images/download.png)
+
 <sub>Figure8: Comparing PR AUC and ROC AUCs for tuned Logistic Regression classifier and recommended Decision Tree classifier with Baseline</sub>
 
 
