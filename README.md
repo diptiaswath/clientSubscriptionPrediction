@@ -157,7 +157,10 @@ Although the Logistic Regression model (Figure6, Figure7) has better PR AUC and 
 ![A screenshot of a computer Description automatically generated](images/d35c43464a1d5b82919d9da69f8f6cad.png)
 <sub>Figure7: Confusion Matrix, PR AUC and ROC AUC curve for tuned Logistic Regression classifier</sub>
 
- 
+![A screenshot of a computer Description automatically generated](images/download-1.png)
+![A screenshot of a computer Description automatically generated](images/download.png)
+<sub>Figure8: Comparing PR AUC and ROC AUCs for tuned Logistic Regression classifier and recommended Decision Tree classifier with Baseline</sub>
+
 
 ### Feature Importance in hyperparameter-tuned Decision Tree vs. Logistic Regression
 
